@@ -1,1 +1,1 @@
-web: gunicorn ebm_training_management_system.wsgi
+web: gunicorn ebm_lms.wsgi
