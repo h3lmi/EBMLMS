@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Courses</title>
-</head>
-<body>
-    <h1>Available Courses</h1>
-    <ul>
-        {% for course in courses %}
-            <li><strong>{{ course.title }}</strong>: {{ course.description }}</li>
-        {% empty %}
-            <li>No courses available.</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Courses | EBM LMS{% endblock %}
+{% block header %}Available Courses{% endblock %}
+
+{% block content %}
+  {% if courses %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for course in courses %}
+        <div class="bg-white rounded-xl shadow p-5 transition hover:shadow-md">
+          <h2 class="text-lg font-semibold text-primary mb-2">{{ course.title }}</h2>
+          <p class="text-sm text-gray-600">{{ course.description|truncatewords:25 }}</p>
+          <div class="mt-4 text-sm text-gray-500">
+            Created: {{ course.created_at|date:"M d, Y" }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="bg-white rounded-xl shadow p-6 text-gray-600 text-center">
+      🚫 No courses available at the moment.
+    </div>
+  {% endif %}
+{% endblock %}
