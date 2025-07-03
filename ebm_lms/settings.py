@@ -27,7 +27,7 @@ DEBUG = True
 
 import os
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "", "localhost").split(",")
 
 
 # Application definition
