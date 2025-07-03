@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+{% block header %}Register{% endblock %}
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Register</button>
+  </form>
+  <p class="mt-4">Already have an account? <a href="{% url 'login' %}" class="text-blue-600">Login here</a>.</p>
+{% endblock %}
