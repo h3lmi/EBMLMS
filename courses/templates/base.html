@@ -14,7 +14,11 @@
         <div class="p-6 font-bold text-xl text-blue-700 border-b">EBM Admin</div>
         <nav class="flex-1 p-4">
             <a href="/" class="block py-2 px-4 rounded hover:bg-blue-100 {% if request.path == '/' %}bg-blue-100 font-semibold{% endif %}">📚 Courses</a>
+            {% comment %}
             <a href="/dashboard/" class="block py-2 px-4 rounded hover:bg-blue-100 {% if request.path.startswith:'/dashboard' %}bg-blue-100 font-semibold{% endif %}">📊 Dashboard</a>
+            {% endcomment %}
+            <a href="/dashboard/" class="block py-2 px-4 rounded hover:bg-blue-100 {% if '/dashboard' in request.path %}bg-blue-100 font-semibold{% endif %}">📊 Dashboard</a>
+            
             <a href="/students/" class="block py-2 px-4 rounded hover:bg-blue-100">👨‍🎓 Students</a>
             <a href="/invoices/" class="block py-2 px-4 rounded hover:bg-blue-100">🧾 Invoices</a>
             <a href="/marks/" class="block py-2 px-4 rounded hover:bg-blue-100">📈 Marks</a>
