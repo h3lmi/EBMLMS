@@ -23,4 +23,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),  # if using auth
     path('courses/', include('courses.urls')),  # ✅ this line is critical
     path('', include('dashboard.urls')),        # or your default app
+    path('accounts/', include('accounts.urls')),
+
 ]
