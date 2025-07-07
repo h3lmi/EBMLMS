@@ -20,7 +20,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('courses.urls')),
-        path('accounts/', include('accounts.urls')),  # 👈 Add this
-
+    path('accounts/', include('django.contrib.auth.urls')),  # if using auth
+    path('courses/', include('courses.urls')),  # ✅ this line is critical
+    path('', include('dashboard.urls')),        # or your default app
 ]
