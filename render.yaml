@@ -5,8 +5,8 @@ services:
     plan: free
     buildCommand: |
       pip install -r requirements.txt
-      python manage.py makemigrations
-      python manage.py migrate
+      python manage.py makemigrations --noinput
+      python manage.py migrate --noinput
     startCommand: gunicorn ebm_lms.wsgi
     envVars:
       - key: DATABASE_URL
