@@ -13,3 +13,16 @@ def run_migrations(request):
         return HttpResponse("✅ Migrations completed successfully.")
     except Exception as e:
         return HttpResponse(f"❌ Migration error: {e}")
+
+
+def create_superuser(request):
+    User = get_user_model()
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser(
+            username='admin',
+            email='admin@example.com',
+            password='adminpass123'
+        )
+        return HttpResponse("✅ Superuser created: admin / adminpass123")
+    else:
+        return HttpResponse("ℹ️ Superuser 'admin' already exists.")
