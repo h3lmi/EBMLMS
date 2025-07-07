@@ -22,7 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),  # if using auth
     path('courses/', include('courses.urls')),  # ✅ this line is critical
-    path('', include('dashboard.urls')),        # or your default app
+    # path('', include('dashboard.urls')),        # or your default app
+    path('dashboard/', views.dashboard_home, name='dashboard_home'),  # <== here
     path('accounts/', include('accounts.urls')),
 
 ]
