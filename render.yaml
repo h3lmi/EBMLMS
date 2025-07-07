@@ -3,7 +3,10 @@ services:
     name: ebmlms
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py makemigrations
+      python manage.py migrate
     startCommand: gunicorn ebm_lms.wsgi
     envVars:
       - key: DATABASE_URL
